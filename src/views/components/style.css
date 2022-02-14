@@ -1,0 +1,52 @@
+.levelh1 {
+    display: block;
+    font-size: clamp(14px, 5vw, 22px);
+    color: black;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: normal;
+  }
+  
+  .levelh2 {
+    display: block;
+    font-size: clamp(12px, 5vw, 18px);
+    color: black;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: normal;
+  }
+  
+  .levelh3 {
+    display: block;
+    color: black;
+    font-style: normal;
+    font-size: clamp(10px, 4vw, 16px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .levelh4 {
+    display: block;
+    color: black;
+    font-style: normal;
+    font-size: clamp(10px, 4vw, 14px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .levelh5 {
+    display: block;
+    font-style: normal;
+    font-size: clamp(8px, 4vw, 10px);
+    color: black;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .levelh6 {
+    display: block;
+    font-size: 0.67em;
+    color: black;
+    margin-left: 0;
+    margin-right: 0;
+  }
