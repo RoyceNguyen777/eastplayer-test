@@ -27,10 +27,10 @@ class ITitle extends Component {
   };
 
   render() {
-    const { title, level, color, boild } = this.props;
+    const { title, level, color, boild, style } = this.props;
     const levelSize = this._fontSizeTitle(level);
     return (
-      <span {...this.props} style={{ fontWeight: boild, color: color }} className={levelSize}>
+      <span {...this.props} style={{ ...style, fontWeight: boild, color: color, }} className={levelSize}>
         {title}
       </span>
     );

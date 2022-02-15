@@ -1,0 +1,12 @@
+body {
+    margin: 0px;
+    background-color: #636271;
+    font-family: 'Nunito';
+}
+.add_list {
+    cursor: pointer;
+}
+.done_list {
+    cursor: pointer;
+    text-decoration: line-through;
+}

@@ -1,29 +1,25 @@
 import React from "react";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import './App.css';
-import Country from "./views/pages/Country";
-import Home from "./views/pages/Home";
-import Todolist from "./views/pages/Todolist";
+import { colors } from "./assets";
+import routes from "./views/container/_routes";
 
 export default function App() {
+  const routeComponents = routes.map(({ path, component, exact }, index) => <Route path={path} component={component} exact={exact} />)
   return (
-    <BrowserRouter>
+    <div style={{
+      padding: "20px",
+      width: "500px",
+      margin: "auto",
+      border: `3px double ${colors.grey}`,
+      backgroundColor: colors.bg_grey,
+      marginTop: "40px",
+      borderRadius: "25px"
+    }} >
       <Switch>
-        <Route
-          path="/"
-          render={(props) => <Home {...props} />}
-          exact
-        />
-        <Route
-          path="/todolist"
-          render={(props) => <Todolist {...props} />}
-        />
-        <Route
-          path="/country"
-          render={(props) => <Country {...props} />}
-        />
+        {routeComponents}
       </Switch >
-    </BrowserRouter >
+    </div>
   );
 }
 

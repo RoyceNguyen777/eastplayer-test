@@ -1,0 +1,7 @@
+.ant-input:hover {
+  color: "#fff";
+}
+
+.ant-input::selection {
+  color: "#fff";
+}
