@@ -10,3 +10,23 @@ body {
     cursor: pointer;
     text-decoration: line-through;
 }
+.ant-message {
+    position: absolute;
+    top: 0;
+    left: 45%;
+}
+.ant-message-notice {
+    margin: 10px 0px;
+    color: #000;
+    font-weight: 700;
+}
+.ant-message-notice i {
+    margin-right: 15px;
+    color: #EF4638
+}
+.ant-empty-normal {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}

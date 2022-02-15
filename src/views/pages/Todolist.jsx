@@ -1,5 +1,5 @@
-import { Col, Icon, Row } from 'antd'
-import React, { useState } from 'react'
+import { Col, Icon, message, Row } from 'antd'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { colors } from '../../assets'
 import ISearch from '../components/ISearch'
@@ -8,7 +8,6 @@ import ITitle from '../components/ITitle'
 export default function Todolist() {
     const history = useHistory()
     const [search, setSearch] = useState("");
-    const [isDone, setIsDone] = useState(false);
 
     const [todolist, setTodoList] = useState([
         {
@@ -20,6 +19,7 @@ export default function Todolist() {
             isDone: false
         }
     ])
+
 
     return (
         <Row>
@@ -71,6 +71,19 @@ export default function Todolist() {
                                 className="flex justify-center item-center"
                                 style={{ width: 70, color: colors.red, fontWeight: "bolder" }}
                                 onClick={() => {
+                                    if (!search) {
+                                        message.warning("Xin hãy nhập list ToDo", 5)
+                                    } else {
+                                        const newlist = {
+                                            todo: search,
+                                            isDone: false
+                                        }
+                                        todolist.push(newlist)
+
+                                        setTodoList(todolist)
+                                        setSearch("")
+                                    }
+                                    return
                                 }}
                             >
                                 Add
@@ -90,12 +103,13 @@ export default function Todolist() {
                                     <li
                                         className={!item.isDone ? "add_list" : "done_list"}
                                         onClick={() => {
-                                            console.log(item)
-                                            const newlist = {
+                                            let newlist = {
                                                 ...item,
-                                                isDone: item.isDone === false ? true : true ? false : undefined
+                                                isDone: !item.isDone && true || item.isDone && false
                                             }
-                                            console.log(newlist)
+                                            todolist[index] = newlist
+                                            let newmenu = [...todolist]
+                                            setTodoList(newmenu)
                                         }}
                                     >
                                         {item.todo}
