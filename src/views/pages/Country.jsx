@@ -10,10 +10,13 @@ export default function Country() {
   const history = useHistory()
   const [search, setSearch] = useState("");
   const [data, setData] = useState([])
+  const [loadinglist, setLoadingList] = useState(false)
   const getListCountry = async (country) => {
     try {
+      setLoadingList(false)
       const dataAPI = await APIService._getListCountry(country)
       setData(dataAPI.data[0])
+      setLoadingList(true)
     } catch (error) {
       console.log(error)
     }
@@ -95,10 +98,11 @@ export default function Country() {
             size="large"
             bordered
             dataSource={altSpellings}
-            loading={true}
+            loading={loadinglist}
             renderItem={item => <List.Item>{item}</List.Item>}
           />
         </div>
+
       </Col>
     </Row >
   )
